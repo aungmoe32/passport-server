@@ -21,6 +21,8 @@
 
 
 ### For Client
+- run `npm install`
+- run `vite build`
 - run `composer install`
 - connect your database and run `php artisan migrate`
 - copy `.env.example` to `.env`
