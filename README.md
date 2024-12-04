@@ -82,6 +82,31 @@ The **Passport-Server** project is an OAuth 2.0 authentication server built with
 4.  **Token Revocation**: Properly handling token revocation and ensuring affected sessions are invalidated.
 5.  **Admin Panel Customization**: Adapting Laravel Filament for specialized management tasks like token monitoring and user actions.
 
+## Installation
+
+### For Server
+
+- run `composer install`
+- connect your database and run `php artisan migrate`
+- run `php artisan passport:install`
+- run `php artisan passport:client`, enter `http://localhost:9001/callback` for redirect uri and note id, secret for client server
+- run `php artisan serve --port=9000`
+- go to `http://127.0.0.1:9000`
+
+### For Client
+
+- run `npm install`
+- run `vite build`
+- run `composer install`
+- connect your database and run `php artisan migrate`
+- copy `.env.example` to `.env`
+- enter `API_CLIENT_ID` and `API_CLIENT_SECRET` to `.env` from noted above
+- add `http://127.0.0.1:9000`(server's address) to `API_URL` in `.env`
+- run `php artisan serve --port=9001`
+- go to `http://localhost:9001`
+
+* note that it should be localhost not 127.0.0.1 for cookie conflicts
+
 ## System Design
 
 ```mermaid
